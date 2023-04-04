@@ -7,13 +7,23 @@ function App() {
   const [todo, setTodo] = useState([]);
 
   const handlerTodo = function (text) {
-    setTodo([...todo, text]);
+    const newTodo = {
+      text: text,
+      completed: false,
+      id: text.length + Math.random(100),
+    };
+
+    setTodo([...todo, newTodo]);
+  };
+
+  const deleteTodo = function (ind) {
+    setTodo(todo.filter((_, id) => id !== ind));
   };
   return (
     <div className="App">
       <h1>Todo List</h1>
       <TodoForm addTodo={handlerTodo} />
-      <TodoList todo={todo} />
+      <TodoList todo={todo} deleteTodo={deleteTodo} />
     </div>
   );
 }

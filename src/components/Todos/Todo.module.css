@@ -1,6 +1,25 @@
-h3 {
+.todo {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  margin: 15px 0;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  border: 2px solid rgb(7, 83, 182);
+  color: #112d49;
+  background-color: #4180bb;
+}
+
+.todoText {
+  width: 100%;
+  text-align: center;
   font-size: 2.2rem;
-  margin-bottom: 40px;
   color: aliceblue;
   font-style: italic;
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-right: 10px;
+  color: rgb(16, 72, 156);
 }

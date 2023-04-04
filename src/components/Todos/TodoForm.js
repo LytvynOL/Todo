@@ -4,9 +4,11 @@ import styles from "./TodoForm.module.css";
 function TodoForm({ addTodo }) {
   const [text, setText] = useState("");
   const hundleSubmit = function (str) {
-    str.preventDefault();
-    addTodo(text);
-    setText("");
+    if (text.trim().length) {
+      str.preventDefault();
+      addTodo(text);
+      setText("");
+    }
   };
 
   return (
