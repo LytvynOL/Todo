@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import TodoForm from "./components/Todos/TodoForm";
 import TodoList from "./components/Todos/TodoList";
+import Button from "./components/But/ButtonDelAll";
 
 function App() {
   const [todos, setTodo] = useState([]);
@@ -27,6 +28,14 @@ function App() {
     );
   };
 
+  const deleteAll = function () {
+    return setTodo([]);
+  };
+
+  const deleteAllTodo = function (todos) {
+    setTodo(todos.filter((todo) => !todo.completed));
+  };
+
   const deleteTodo = function (id) {
     setTodo(todos.filter((todo) => todo.id !== id));
   };
@@ -34,6 +43,11 @@ function App() {
     <div className="App">
       <h1>Todo List</h1>
       <TodoForm addTodo={handlerTodo} />
+      <Button
+        deleteAllTodo={deleteAllTodo}
+        todo={todos}
+        deleteAll={deleteAll}
+      />
       <TodoList todo={todos} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
     </div>
   );
