@@ -4,7 +4,7 @@ import TodoForm from "./components/Todos/TodoForm";
 import TodoList from "./components/Todos/TodoList";
 
 function App() {
-  const [todo, setTodo] = useState([]);
+  const [todos, setTodo] = useState([]);
 
   const handlerTodo = function (text) {
     const newTodo = {
@@ -13,17 +13,28 @@ function App() {
       id: text.length + Math.random(100),
     };
 
-    setTodo([...todo, newTodo]);
+    setTodo([...todos, newTodo]);
   };
 
-  const deleteTodo = function (ind) {
-    setTodo(todo.filter((_, id) => id !== ind));
+  const toggleTodo = function (todoId) {
+    setTodo(
+      todos.map((todo) => {
+        if (todo.id == todoId) return { ...todo, completed: !todo.completed };
+        return {
+          ...todo,
+        };
+      })
+    );
+  };
+
+  const deleteTodo = function (id) {
+    setTodo(todos.filter((todo) => todo.id !== id));
   };
   return (
     <div className="App">
       <h1>Todo List</h1>
       <TodoForm addTodo={handlerTodo} />
-      <TodoList todo={todo} deleteTodo={deleteTodo} />
+      <TodoList todo={todos} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
     </div>
   );
 }

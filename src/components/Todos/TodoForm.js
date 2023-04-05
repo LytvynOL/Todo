@@ -8,6 +8,8 @@ function TodoForm({ addTodo }) {
       str.preventDefault();
       addTodo(text);
       setText("");
+    } else {
+      str.preventDefault();
     }
   };
 

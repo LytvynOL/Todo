@@ -1,12 +1,17 @@
 import Todo from "./Todo";
 import styles from "./TodoList.module.css";
 
-function TodoList({ todo, deleteTodo }) {
+function TodoList({ todo, deleteTodo, toggleTodo }) {
   return (
     <div className={styles.todoListStyle}>
       {todo.length === 0 && <h2>Список задач пуст</h2>}
-      {todo.map((text, id) => (
-        <Todo key={id} id={id} todo={text} deleteTodo={deleteTodo} />
+      {todo.map((todo) => (
+        <Todo
+          key={todo.id}
+          todo={todo}
+          deleteTodo={deleteTodo}
+          toggleTodo={toggleTodo}
+        />
       ))}
     </div>
   );

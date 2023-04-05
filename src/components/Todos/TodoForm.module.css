@@ -32,6 +32,7 @@
 }
 
 .formStyle button:hover {
-  background-color: aliceblue;
-  transition: 1s;
+  background-color: #4180bb;
+  color: aliceblue;
+  transition: 0.7s;
 }
