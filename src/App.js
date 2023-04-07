@@ -3,9 +3,11 @@ import "./App.css";
 import TodoForm from "./components/Todos/TodoForm";
 import TodoList from "./components/Todos/TodoList";
 import Button from "./components/But/ButtonDelAll";
+import Modal from "./components/Modal/modal";
 
 function App() {
   const [todos, setTodo] = useState([]);
+  const [activeModal, setActiveModal] = useState(true);
 
   const handlerTodo = function (text) {
     const newTodo = {
@@ -45,6 +47,7 @@ function App() {
 
   return (
     <div className="App">
+      <Modal />
       <h1>Todo List</h1>
       <TodoForm addTodo={handlerTodo} finishTodo={finishTodo} />
       {todos.length < 1 ? (

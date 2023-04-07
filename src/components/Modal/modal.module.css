@@ -1,0 +1,53 @@
+.globalModal {
+  height: 100%;
+  width: 40%;
+  padding-left: 10vh;
+}
+
+.modal {
+  height: 200px;
+  width: 400px;
+  margin-top: 30vh;
+  background: rgba(229, 229, 236);
+  border-radius: 2%;
+  position: absolute;
+}
+
+.modal__text {
+  height: 40%;
+  padding-top: 40px;
+}
+
+.modal__button {
+  display: flex;
+  justify-content: space-around;
+}
+
+.button {
+  height: 30px;
+  width: 80px;
+  border: none;
+  border-radius: 5%;
+  background-color: rgb(186, 209, 229);
+  cursor: pointer;
+}
+
+.close {
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgb(147, 188, 224);
+  height: 30px;
+}
+.but {
+  margin-top: 5px;
+  margin-right: 10px;
+  height: 20px;
+  width: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 10%;
+  border: none;
+}
+.but:hover {
+  background-color: tomato;
+}
