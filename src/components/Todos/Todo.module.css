@@ -61,3 +61,8 @@
   color: rgb(12, 218, 22);
   transition: 0.5s;
 }
+
+.iconText {
+  font-size: 20px;
+  color: aliceblue;
+}

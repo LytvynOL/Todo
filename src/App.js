@@ -17,6 +17,9 @@ function App() {
     setTodo([...todos, newTodo]);
   };
 
+  const finishTodo = todos.filter((el) => el.completed).length;
+  console.log(finishTodo);
+
   const toggleTodo = function (todoId) {
     setTodo(
       todos.map((todo) => {
@@ -39,15 +42,22 @@ function App() {
   const deleteTodo = function (id) {
     setTodo(todos.filter((todo) => todo.id !== id));
   };
+
   return (
     <div className="App">
       <h1>Todo List</h1>
-      <TodoForm addTodo={handlerTodo} />
-      <Button
-        deleteAllTodo={deleteAllTodo}
-        todo={todos}
-        deleteAll={deleteAll}
-      />
+      <TodoForm addTodo={handlerTodo} finishTodo={finishTodo} />
+      {todos.length < 1 ? (
+        " "
+      ) : (
+        <Button
+          finishTodo={finishTodo}
+          deleteAllTodo={deleteAllTodo}
+          todo={todos}
+          deleteAll={deleteAll}
+        />
+      )}
+
       <TodoList todo={todos} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
     </div>
   );
