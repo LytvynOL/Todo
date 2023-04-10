@@ -1,16 +1,36 @@
 .globalModal {
-  height: 100%;
-  width: 40%;
-  padding-left: 10vh;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.globalModal_active {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1);
 }
 
 .modal {
   height: 200px;
   width: 400px;
-  margin-top: 30vh;
   background: rgba(229, 229, 236);
   border-radius: 2%;
-  position: absolute;
+  opacity: 1;
+  transition: 0.7s;
 }
 
 .modal__text {

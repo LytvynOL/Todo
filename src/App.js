@@ -7,7 +7,7 @@ import Modal from "./components/Modal/modal";
 
 function App() {
   const [todos, setTodo] = useState([]);
-  const [activeModal, setActiveModal] = useState(true);
+  const [activeModal, setActiveModal] = useState(false);
 
   const handlerTodo = function (text) {
     const newTodo = {
@@ -34,7 +34,7 @@ function App() {
   };
 
   const deleteAll = function () {
-    return setTodo([]);
+    setTodo([]);
   };
 
   const deleteAllTodo = function (todos) {
@@ -45,19 +45,27 @@ function App() {
     setTodo(todos.filter((todo) => todo.id !== id));
   };
 
+  const activsModal = function () {
+    setActiveModal(true);
+  };
+
   return (
     <div className="App">
-      <Modal />
+      <Modal
+        active={activeModal}
+        setActive={setActiveModal}
+        deleteAll={deleteAll}
+      />
       <h1>Todo List</h1>
       <TodoForm addTodo={handlerTodo} finishTodo={finishTodo} />
       {todos.length < 1 ? (
         " "
       ) : (
         <Button
-          finishTodo={finishTodo}
           deleteAllTodo={deleteAllTodo}
           todo={todos}
-          deleteAll={deleteAll}
+          finishTodo={finishTodo}
+          activsModal={activsModal}
         />
       )}
 
